@@ -40,7 +40,7 @@ This is the official landing page for Alex Williamson and Open Chair Advisory. T
    cd Open-Chair-Advisory-Landing-Page
    ```
 
-3. Open `OCA_landing_page.html` in your browser or serve it locally:
+3. Open `index.html` in your browser or serve it locally:
    ```bash
    # Using Python 3
    python -m http.server 8000
@@ -55,7 +55,7 @@ This is the official landing page for Alex Williamson and Open Chair Advisory. T
 ## File Structure
 
 ```
-OCA_landing_page.html  - Main landing page
+index.html             - Main landing page
 README.md              - Project documentation
 ```
 
