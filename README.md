@@ -65,7 +65,7 @@ README.md              - Project documentation
 
 To customize the landing page:
 
-1. **Edit Content**: Update the HTML text directly in `OCA_landing_page.html`
+1. **Edit Content**: Update the HTML text directly in `index.html`
 2. **Styling**: Modify inline styles or add custom CSS in the `<style>` tag
 3. **Colors**: Adjust Tailwind CSS classes or modify custom CSS variables
 
