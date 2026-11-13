@@ -84,10 +84,6 @@ Alex does the work directly. In past engagements that meant running outbound, le
 
 Project coordination across several workstreams, hiring support (role scorecards and first-round screens), vendor management, process documentation and playbooks, investor and stakeholder updates, and reporting on pipeline, sprints, and budget against actuals. Alex has also worked on workforce modeling, investor decks, and compliance.
 
-### How does Alex Williamson use AI in the work?
-
-Alex built Command Center, a skill that pulls from email, calendar, Slack, Granola, and Notion every Monday and flags where Alex needs to show up and what is at risk that week. Alex also uses research agents that return metrics that can be checked. Both were featured in "What independents are building with AI" in On Work by Shaina Anderson.
-
 ### Is Alex Williamson taking new engagements?
 
 Alex is booking new engagements starting February 2027. To talk about work after that date, email arwilliamson9@gmail.com.
