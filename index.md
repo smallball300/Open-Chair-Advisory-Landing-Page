@@ -60,12 +60,12 @@ Result: live users in a new market.
 
 Operations work at early-stage startups and larger organizations, mostly the tasks that sit between teams.
 
-- **Project coordination.** Runs several workstreams at once: status tracking, weekly standups, early escalation of blockers, and written decision logs.
-- **Hiring support.** Role scorecards, first-round screens, and a structured evaluation framework for founders.
-- **Vendor management.** Handled a company's exit from an outside dev team: scoped what was owed, reviewed the contract, and wrote all outgoing communication through a clean handoff.
-- **Process documentation.** Playbooks for content production, QA, bug triage, and partner tracking, written for whoever inherits the process.
-- **Stakeholder updates.** Partner follow-ups, investor updates, and client status reports on a regular schedule.
-- **Reporting.** Simple reports on pipeline health, sprint completion, open action items, and budget against actuals.
+- **Project coordination.** Keeps several workstreams moving at once, at startups and larger companies, mainly through a weekly standup and raising blockers early. Decisions are written down the day they're made.
+- **Hiring support.** During one startup's growth push, wrote a scorecard for each role and ran first-round screens, so final interviews were judged against agreed criteria.
+- **Vendor management.** When a company split with its outside dev team, worked out what was still owed under the contract and wrote every message to the vendor through a clean handoff.
+- **Process documentation.** Playbooks for content production, QA, bug triage and partner tracking, each written for the person who inherits the process.
+- **Stakeholder updates.** Investor updates and client status reports, plus partner follow-ups, sent on a fixed schedule.
+- **Reporting.** Short reports on pipeline health, sprint completion, open action items and budget against actuals.
 
 ## Featured
 
