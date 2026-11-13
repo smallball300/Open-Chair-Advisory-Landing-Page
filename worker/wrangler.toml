@@ -1,0 +1,20 @@
+# Contact form Worker for openchairadvisory.com
+# Deploy from this folder:  npx wrangler deploy --var DEST_EMAIL:<your verified inbox>
+# The destination inbox is passed at deploy time (or set in the dashboard) so it never lives in this public repo.
+# TURNSTILE_SECRET is a Worker secret, set once with:  npx wrangler secret put TURNSTILE_SECRET
+
+name = "openchair-contact"
+main = "contact.js"
+compatibility_date = "2026-11-01"
+account_id = "8b46b97200af6405cc4c24f7a3ce3cda"
+workers_dev = false
+
+routes = [
+  { pattern = "openchairadvisory.com/api/contact", zone_name = "openchairadvisory.com" }
+]
+
+[vars]
+FROM_EMAIL = "contact@openchairadvisory.com"
+
+[[send_email]]
+name = "SEND_EMAIL"
