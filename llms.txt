@@ -2,7 +2,7 @@
 
 > Alex Williamson's fractional practice. Alex joins early-stage companies, mostly in health tech and medical devices, and runs implementation, strategy and operations, or go-to-market until the founder or a full-time hire takes over. Booking new engagements starting February 2027. Contact: arwilliamson9@gmail.com
 
-Recent engagements, by strength: implementation of a health tech platform across several hospitals (about 700 staff trained a month, followed by a seven-figure Series A), workforce modeling for the reorganization of a national clinical contact center network with 170+ sites, founder GTM enablement at Dispatch Care (ICP, positioning, collateral, campaigns, conference prep, CRM; qualified meetings more than doubled), and a product launch at Kroot.
+Recent engagements, by strength: a scheduler system rollout at VA Medical Centers and then the organizational design and operating model for a national clinical contact center network with 8,000+ staff across 170+ sites (18 regions consolidated to 5, role functions adjusted), founder GTM enablement at Dispatch Care (ICP, positioning, collateral, campaigns, conference prep, CRM; qualified meetings more than doubled), and a product launch at Kroot.
 
 ## Docs
 
