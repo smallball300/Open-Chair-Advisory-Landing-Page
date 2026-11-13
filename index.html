@@ -4,394 +4,893 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🪑 Alex Williamson, Open Chair Advisory</title>
+  <meta name="description" content="Fractional operator for go-to-market, product, and business operations. I run the function until a full-time hire or the founder takes it over." />
+  <meta property="og:title" content="Alex Williamson, Open Chair Advisory" />
+  <meta property="og:description" content="Fractional operator for go-to-market, product, and business operations." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="shortcut icon" href="/favicon.svg" />
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #ffffff; --bg-soft: #fafafa; --surface: #ffffff;
+      --line: #ececec; --line-strong: #dedede;
+      --ink: #111111; --ink-2: #3f3f46; --muted: #71717a; --faint: #a1a1aa;
+      --blue: #3c82c6; --blue-soft: #eaf2fb;
+      --green: #16a34a; --green-soft: #e9f7ee;
+      --amber: #e07412; --amber-soft: #fdf0e4;
+      --violet: #7c5cd6; --violet-soft: #f1edfb;
+      --chip: #f4f4f5;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 28px rgba(0,0,0,.05);
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b0b0c; --bg-soft: #111113; --surface: #141416;
+        --line: #232326; --line-strong: #2e2e32;
+        --ink: #f4f4f5; --ink-2: #d4d4d8; --muted: #a1a1aa; --faint: #71717a;
+        --blue: #6aa5e0; --blue-soft: #16273a;
+        --green: #4ade80; --green-soft: #12291b;
+        --amber: #f59e4b; --amber-soft: #2e1f10;
+        --violet: #a48bf0; --violet-soft: #221c38;
+        --chip: #1d1d20;
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.35);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif;
-      color: #0f172a;
-      background: #ffffff;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.6;
+      color: var(--ink); background: var(--bg);
+      -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01";
     }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    /* Nav */
-    .site-nav {
+    /* ---------- Nav ---------- */
+    .nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #f1f5f9;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: saturate(1.4) blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner {
-      max-width: 1060px; margin: 0 auto; padding: 0 28px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
+    .nav .wrap { height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+    .brand img { width: 22px; height: 22px; border-radius: 5px; transition: transform .4s var(--ease); }
+    .brand:hover img { transform: rotate(-8deg) scale(1.08); }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a:not(.btn) { position: relative; font-size: 13.5px; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .nav-links a:not(.btn):hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a:not(.btn)::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -18px; height: 2px;
+      background: var(--blue); transform: scaleX(0); transition: transform .3s var(--ease);
     }
-    .nav-wordmark { font-size: 15px; font-weight: 600; color: #0f172a; text-decoration: none; letter-spacing: -0.01em; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { font-size: 14px; color: #64748b; text-decoration: none; transition: color 150ms; }
-    .nav-links a:hover { color: #0f172a; }
-    .nav-cta {
-      font-size: 14px; font-weight: 500; color: #0f172a;
-      text-decoration: none; border: 1px solid #d1d5db;
-      padding: 7px 18px; border-radius: 6px;
-      transition: border-color 150ms, color 150ms;
-    }
-    .nav-cta:hover { border-color: #0f172a; }
+    .nav-links a.active::after { transform: scaleX(1); }
+    .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--blue); transform-origin: left; transform: scaleX(0); opacity: .7; }
 
-    /* Layout */
-    .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font: 500 13px/1 'Inter', sans-serif;
+      padding: 8px 14px; border-radius: 8px;
+      border: 1px solid var(--line-strong); background: var(--surface);
+      color: var(--ink); text-decoration: none; cursor: pointer;
+      transition: border-color .15s, transform .15s var(--ease), background .15s, opacity .15s;
+    }
+    .btn:hover { border-color: var(--faint); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .btn.primary:hover { opacity: .9; }
+    .btn .arr { transition: transform .2s var(--ease); }
+    .btn:hover .arr { transform: translate(2px, -2px); }
+    .btn:hover .arr.down { transform: translateY(2px); }
 
-    /* Hero */
-    .hero { padding: 88px 0 72px; }
-    .hero-eyebrow {
-      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #94a3b8; margin-bottom: 20px;
+    /* ---------- Hero ---------- */
+    .hero { padding: 76px 0 48px; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 4px 11px 4px 8px; margin-bottom: 22px; background: var(--surface);
     }
-    .hero-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(44px, 6.5vw, 68px);
-      line-height: 1.05; letter-spacing: -0.025em;
-      color: #0f172a; margin-bottom: 28px;
+    .pulse { --pc: var(--amber); width: 8px; height: 8px; border-radius: 50%; background: var(--pc); animation: pulse 2.4s infinite; }
+    .pulse.on { --pc: var(--green); }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pc) 45%, transparent);} 70% { box-shadow: 0 0 0 7px transparent;} 100% { box-shadow: 0 0 0 0 transparent;} }
+    h1 { font-size: clamp(40px, 5.6vw, 60px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 22px; }
+    h1 .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+    h1 .ln > span { display: inline-block; animation: rise .9s var(--ease) both; }
+    h1 .ln:nth-child(2) > span { color: var(--faint); animation-delay: .12s; }
+    @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+    .fade-up { animation: fadeUp .8s var(--ease) both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .lede { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 460px; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .featured-line {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 26px;
+      font-size: 12.5px; color: var(--muted); text-decoration: none;
     }
-    .hero-desc {
-      font-size: 18px; line-height: 1.75; color: #475569;
-      max-width: 560px; margin-bottom: 40px;
-    }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .hero-tag {
-      font-size: 13px; font-weight: 500; color: #334155;
-      background: #f1f5f9; padding: 6px 14px; border-radius: 999px;
-    }
+    .featured-line .tag { transition: background .2s; }
+    .featured-line:hover { color: var(--ink); }
+    .featured-line u { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s var(--ease); }
+    .featured-line:hover u { background-size: 100% 1px; }
 
-    /* Section header */
-    .section-wrap { padding: 80px 0; }
-    .section-label {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #94a3b8; margin-bottom: 10px;
+    /* ---------- UI kit ---------- */
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11.5px; font-weight: 500; line-height: 1;
+      padding: 4px 8px; border-radius: 999px; white-space: nowrap;
+      transition: background .3s, color .3s;
     }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(26px, 3.5vw, 36px);
-      color: #0f172a; margin-bottom: 12px;
-      letter-spacing: -0.02em; line-height: 1.2;
+    .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .pill.open     { color: var(--green);  background: var(--green-soft); }
+    .pill.conflict { color: var(--amber);  background: var(--amber-soft); }
+    .pill.merging  { color: var(--blue);   background: var(--blue-soft); }
+    .pill.merged   { color: var(--violet); background: var(--violet-soft); }
+    .pill.pop { animation: pop .35s var(--ease); }
+    @keyframes pop { 50% { transform: scale(1.12); } }
+    .tag {
+      font-family: var(--mono); font-size: 10.5px; line-height: 1;
+      padding: 3px 6px; border-radius: 5px;
+      color: var(--blue); background: var(--blue-soft); white-space: nowrap;
     }
-    .section-intro {
-      font-size: 16px; color: #64748b; line-height: 1.7;
-      max-width: 520px; margin-bottom: 52px;
-    }
+    .tag.grey { color: var(--muted); background: var(--chip); }
+    .tag.green { color: var(--green); background: var(--green-soft); }
 
-    /* Work blocks */
-    .work-block {
-      border-top: 1px solid #e2e8f0;
-      padding: 40px 0;
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .work-meta { padding-top: 4px; }
-    .work-client {
-      font-size: 15px; font-weight: 600; color: #0f172a;
-      margin-bottom: 4px;
-    }
-    .work-type {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #0d9488;
-      border: 1.5px solid #0d9488;
-      padding: 4px 11px;
-      border-radius: 4px;
-      margin-top: 8px;
-    }
-    .work-content {}
-    .work-items { display: flex; flex-direction: column; gap: 16px; }
-    .work-item {}
-    .work-item-label {
-      font-size: 12px; font-weight: 600; color: #0d9488;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-    .work-item p {
-      font-size: 15px; line-height: 1.7; color: #334155;
-    }
+    .pr-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px 10px; }
+    .pr-title { font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em; }
+    .pr-title .num { color: var(--faint); font-weight: 500; }
 
-    /* BizOps grid */
-    .bizops-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-      margin-top: 0;
+    /* commit graph */
+    .graph { padding: 2px 16px 10px; }
+    .row {
+      position: relative; display: flex; align-items: flex-start; gap: 10px;
+      padding: 5px 0 5px 40px; min-height: 30px; font-size: 13px; color: var(--ink-2);
     }
-    .bizops-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 28px;
-    }
-    .bizops-card-label {
-      font-size: 12px; font-weight: 600; color: #0d9488;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 12px;
-    }
-    .bizops-card p {
-      font-size: 15px; line-height: 1.7; color: #334155;
-    }
+    .row .msg { flex: 1; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; line-height: 20px; }
+    .row.strong .msg { color: var(--ink); font-weight: 500; }
+    .g { position: absolute; left: 0; top: 0; bottom: 0; width: 36px; pointer-events: none; }
+    .g i { position: absolute; display: block; }
+    .g .lm { left: 9px; top: 0; bottom: 0; width: 2px; background: var(--line-strong); }
+    .g .lb { left: 25px; top: 0; bottom: 0; width: 2px; background: var(--c, var(--blue)); opacity: .55; }
+    .row.first .g .lm { top: 15px; }
+    .row.last  .g .lm { bottom: calc(100% - 15px); }
+    .row.fork  .g .lb { top: 30px; }
+    .g svg { position: absolute; left: 0; width: 36px; height: 15px; overflow: visible; }
+    .g svg path { fill: none; stroke: var(--c, var(--blue)); stroke-width: 2; opacity: .55; }
+    .row.fork .g svg { top: 15px; }
+    .row.merge .g svg { top: 0; }
+    .g .dot { top: 10px; left: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--faint); }
+    .row.branch .g .dot { left: 21px; border-color: var(--c, var(--blue)); background: var(--c, var(--blue)); }
+    .row.merge .g .dot { border-color: var(--violet); background: var(--surface); box-shadow: inset 0 0 0 2px var(--surface), inset 0 0 0 5px var(--violet); }
 
-    /* Divider */
-    .rule { width: 100%; height: 1px; background: #e2e8f0; }
+    /* graph draws itself when its card scrolls into view */
+    .draw .g .lm, .draw .g .lb { transform: scaleY(0); transform-origin: top; transition: transform .45s var(--ease) calc(var(--i, 0) * 110ms); }
+    .draw .g svg path { stroke-dasharray: 40; stroke-dashoffset: 40; transition: stroke-dashoffset .4s var(--ease) calc(var(--i, 0) * 110ms + 80ms); }
+    .draw .g .dot { transform: scale(0); transition: transform .35s var(--ease) calc(var(--i, 0) * 110ms + 120ms); }
+    .draw .row .msg { opacity: 0; transform: translateX(-4px); transition: opacity .4s ease calc(var(--i, 0) * 110ms + 100ms), transform .4s var(--ease) calc(var(--i, 0) * 110ms + 100ms); }
+    .draw.in .g .lm, .draw.in .g .lb { transform: none; }
+    .draw.in .g svg path { stroke-dashoffset: 0; }
+    .draw.in .g .dot { transform: none; }
+    .draw.in .row .msg { opacity: 1; transform: none; }
 
-    /* About strip */
-    .about-strip {
-      background: #f8fafc;
-      padding: 72px 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-body p {
-      font-size: 16px; line-height: 1.8; color: #475569;
-      margin-bottom: 18px;
-    }
-    .about-body p:last-child { margin-bottom: 0; }
-    .details-list { display: flex; flex-direction: column; gap: 18px; }
-    .detail-row { display: flex; gap: 16px; align-items: flex-start; }
-    .detail-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #0d9488; flex-shrink: 0; margin-top: 8px;
-    }
-    .detail-row p { font-size: 15px; line-height: 1.65; color: #334155; }
-    .detail-row strong { font-weight: 500; color: #0f172a; }
+    .checks { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+    .check { display: inline-flex; align-items: center; gap: 6px; }
+    .check svg { width: 13px; height: 13px; color: var(--green); flex-shrink: 0; }
+    .check b { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }
 
-    /* Footer CTA */
-    .footer-cta {
-      padding: 80px 0;
-      text-align: center;
-    }
-    .footer-cta h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(26px, 4vw, 38px);
-      color: #0f172a; margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .footer-cta p {
-      font-size: 16px; color: #64748b; line-height: 1.7;
-      max-width: 420px; margin: 0 auto 36px;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: #0f172a; color: #ffffff;
-      font-size: 15px; font-weight: 500;
-      padding: 13px 32px; border-radius: 6px;
-      text-decoration: none;
-      transition: background 150ms, transform 100ms;
-    }
-    .cta-btn:hover { background: #1e293b; transform: translateY(-1px); }
-    .cta-email {
-      display: block; margin-top: 14px;
-      font-size: 13px; color: #94a3b8; text-decoration: none;
-    }
+    .pr-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+    .pr-foot .state { display: inline-flex; align-items: center; gap: 8px; }
+    .spinner { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line-strong); border-top-color: var(--blue); animation: spin .8s linear infinite; flex-shrink: 0; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Site footer */
-    .site-footer {
-      border-top: 1px solid #f1f5f9;
-      padding: 24px 28px;
-      text-align: center;
+    /* ---------- Hero demo ---------- */
+    .demo { position: relative; }
+    .demo .card { overflow: hidden; }
+    .demo-top { display: flex; justify-content: flex-end; margin-bottom: 10px; min-height: 26px; }
+    .replay { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--faint); background: none; border: 0; cursor: pointer; padding: 4px 6px; border-radius: 6px; opacity: 0; transition: opacity .3s, color .15s; }
+    .replay.show { opacity: 1; }
+    .replay:hover { color: var(--ink); }
+    .replay svg { width: 12px; height: 12px; transition: transform .5s var(--ease); }
+    .replay:hover svg { transform: rotate(-200deg); }
+    .demo-summary { font-size: 13px; color: var(--ink-2); line-height: 1.6; margin: 14px 2px; min-height: 42px; }
+    .demo-summary code { font-family: var(--mono); font-size: 11.5px; background: var(--chip); padding: 1px 5px; border-radius: 4px; }
+    .composer { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); padding: 12px 12px 10px; transition: border-color .2s, box-shadow .2s; }
+    .composer:focus-within { border-color: color-mix(in srgb, var(--blue) 45%, var(--line)); box-shadow: var(--shadow), 0 0 0 4px var(--blue-soft); }
+    .composer .input { font-size: 13.5px; color: var(--ink); min-height: 22px; }
+    .composer .caret { display: inline-block; width: 1.5px; height: 15px; background: var(--ink); vertical-align: -2px; margin-left: 1px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .composer .bar { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; gap: 8px; }
+    .composer .left { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font: 500 11.5px/1 'Inter', sans-serif; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px;
+      background: var(--surface); user-select: none;
+      transition: color .15s, border-color .15s, background .15s, transform .15s var(--ease);
     }
-    .site-footer p { font-size: 13px; color: #cbd5e1; }
+    button.chip { cursor: pointer; }
+    button.chip:hover { color: var(--ink); border-color: var(--line-strong); }
+    button.chip:active { transform: scale(.95); }
+    button.chip[aria-pressed="true"] { color: var(--blue); background: var(--blue-soft); border-color: transparent; }
+    .send { width: 28px; height: 28px; border-radius: 50%; border: 0; flex-shrink: 0; background: var(--blue); color: #fff; display: grid; place-items: center; cursor: pointer; transition: transform .15s var(--ease), opacity .15s; }
+    .send:hover { transform: translateY(-1px); } .send:active { transform: scale(.92); }
+    .send svg { width: 14px; height: 14px; }
+    .send.sent svg { animation: launch .6s var(--ease); }
+    @keyframes launch { 50% { transform: translateY(-18px); opacity: 0; } 51% { transform: translateY(18px); opacity: 0; } }
 
-    /* Responsive */
-    @media (max-width: 720px) {
-      .work-block { grid-template-columns: 1fr; gap: 20px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .nav-links a { display: none; }
+    .stage { opacity: 0; transform: translateY(6px); transition: opacity .45s ease, transform .45s var(--ease); }
+    .stage.in { opacity: 1; transform: none; }
+    .demo .row { opacity: 0; transform: translateX(-4px); transition: opacity .35s ease, transform .35s var(--ease); }
+    .demo .row.in { opacity: 1; transform: none; }
+    .demo .check svg { opacity: .25; transition: opacity .3s; }
+    .demo .check.ok svg { opacity: 1; }
+    .demo .check:not(.ok) b { color: var(--faint); }
+
+    /* ---------- Sections ---------- */
+    section.block { padding: 96px 0; border-top: 1px solid var(--line); scroll-margin-top: 40px; }
+    .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; flex-wrap: wrap; }
+    .kicker { font-family: var(--mono); font-size: 11.5px; color: var(--faint); margin-bottom: 10px; }
+    h2 { font-size: clamp(26px, 3.2vw, 34px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 600; }
+    .sec-intro { font-size: 15.5px; color: var(--muted); max-width: 440px; }
+
+    /* How it works */
+    .flow-wrap { position: relative; }
+    .flow-line { position: relative; height: 56px; margin-bottom: 10px; }
+    .flow-line svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .flow-line .main { stroke: var(--line-strong); stroke-width: 2; fill: none; }
+    .flow-line .br { stroke: var(--blue); stroke-width: 2; fill: none; opacity: .6; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease) .2s; }
+    .flow-wrap.in .br { stroke-dashoffset: 0; }
+    .flow-dot { position: absolute; top: 12px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--surface); border: 2px solid var(--blue); transform: scale(0); transition: transform .4s var(--ease); }
+    .flow-dot:nth-of-type(1) { left: 16.66%; transition-delay: .7s; }
+    .flow-dot:nth-of-type(2) { left: 50%; transition-delay: 1.1s; }
+    .flow-dot:nth-of-type(3) { left: 83.33%; transition-delay: 1.5s; border-color: var(--violet); }
+    .flow-wrap.in .flow-dot { transform: none; }
+    .runner { position: absolute; top: 15px; left: 16.66%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft); opacity: 0; }
+    .flow-wrap.in .runner { animation: run 4.5s var(--ease) 2s infinite; }
+    @keyframes run { 0% { left: 16.66%; opacity: 0; } 10% { opacity: 1; } 80% { left: 83.33%; opacity: 1; } 100% { left: 83.33%; opacity: 0; } }
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .step { padding: 20px; transition: transform .3s var(--ease), border-color .2s; }
+    .step:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+    .step .n { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .step h3 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .step p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    /* Engagements */
+    .eng { display: grid; grid-template-columns: 250px 1fr; gap: 40px; align-items: start; }
+    .eng + .eng { margin-top: 64px; }
+    .eng-meta { position: sticky; top: 84px; }
+    .logo-link { display: inline-block; margin-bottom: 16px; transition: transform .3s var(--ease); }
+    .logo-link:hover { transform: translateY(-2px); }
+    .logo-link img { display: block; }
+    .logo-dispatch { background: #0f2244; padding: 8px 14px; border-radius: 9px; }
+    .logo-dispatch img { height: 26px; width: auto; }
+    .logo-kroot img { height: 38px; width: auto; border-radius: 8px; }
+    .eng-meta h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
+    .eng-meta p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+    .role { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    details.commit summary { list-style: none; cursor: pointer; display: block; border-radius: 8px; transition: background .15s; }
+    details.commit summary::-webkit-details-marker { display: none; }
+    details.commit summary:hover { background: var(--bg-soft); }
+    details.commit summary:hover .msg { color: var(--ink); }
+    .chev { width: 14px; height: 14px; color: var(--faint); transition: transform .25s var(--ease); flex-shrink: 0; margin: 3px 4px 0 0; }
+    details[open] .chev { transform: rotate(90deg); }
+    .commit-body { position: relative; padding: 2px 8px 14px 40px; font-size: 13.5px; line-height: 1.7; color: var(--muted); }
+    .commit-body::before { content: ""; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--line-strong); }
+    .commit-body::after { content: ""; position: absolute; left: 25px; top: 0; bottom: 0; width: 2px; background: var(--c, var(--blue)); opacity: .55; }
+    details[open] .commit-body { animation: open .35s var(--ease); }
+    @keyframes open { from { opacity: 0; transform: translateY(-4px); } }
+
+    /* Biz Ops: checks panel */
+    .ci { overflow: hidden; }
+    .ci-grid { display: grid; grid-template-columns: 300px 1fr; border-top: 1px solid var(--line); min-height: 330px; }
+    .ci-list { list-style: none; border-right: 1px solid var(--line); padding: 8px; }
+    .job {
+      width: 100%; display: flex; align-items: center; gap: 10px; text-align: left;
+      background: none; border: 0; border-radius: 8px; padding: 9px 10px; cursor: pointer;
+      font-size: 13px; color: var(--ink-2); transition: background .15s, color .15s;
+    }
+    .job:hover { background: var(--bg-soft); }
+    .job[aria-selected="true"] { background: var(--chip); color: var(--ink); font-weight: 500; }
+    .job .nm { flex: 1; }
+    .st { width: 14px; height: 14px; flex-shrink: 0; display: grid; place-items: center; }
+    .st .q { width: 10px; height: 10px; border-radius: 50%; border: 1.5px dashed var(--faint); }
+    .st .spinner { width: 13px; height: 13px; }
+    .st svg { width: 14px; height: 14px; color: var(--green); animation: pop .35s var(--ease); }
+    .job-body { display: none; }
+    .ci-detail { padding: 18px 22px; display: flex; flex-direction: column; gap: 14px; }
+    .ci-detail .hd { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ci-detail h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+    .log { font-family: var(--mono); font-size: 11.5px; color: var(--faint); line-height: 1.9; }
+    .log .ok { color: var(--green); }
+    .ci-detail p { font-size: 14.5px; line-height: 1.75; color: var(--ink-2); }
+    .ci-detail .swap { animation: fadeUp .45s var(--ease); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .about-body p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    .links { display: flex; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+    .side { display: flex; flex-direction: column; gap: 14px; }
+    .profile { overflow: hidden; }
+    .profile .kv { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 11px 16px; border-top: 1px solid var(--line); font-size: 13.5px; }
+    .profile .k { font-family: var(--mono); font-size: 11.5px; color: var(--faint); padding-top: 2px; }
+    .profile .v { color: var(--ink-2); }
+    .press {
+      display: block; padding: 16px; text-decoration: none; position: relative; overflow: hidden;
+      transition: transform .3s var(--ease), border-color .2s;
+    }
+    .press:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+    .press .src { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+    .press .src span:first-child { font-size: 12px; color: var(--muted); }
+    .press h4 { font-size: 15.5px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; }
+    .press p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .press .go { position: absolute; top: 14px; right: 14px; font-size: 14px; color: var(--faint); transition: transform .25s var(--ease), color .2s; }
+    .press:hover .go { transform: translate(2px, -2px); color: var(--ink); }
+    .press::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 40%, color-mix(in srgb, var(--blue) 8%, transparent) 50%, transparent 60%); transform: translateX(-100%); transition: transform .8s var(--ease); pointer-events: none; }
+    .press:hover::after { transform: translateX(100%); }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact h2 { margin-bottom: 10px; }
+    .contact .sec-intro { margin: 0 auto 30px; }
+    .contact .composer { max-width: 620px; margin: 0 auto; text-align: left; }
+    .contact textarea { width: 100%; border: 0; outline: none; resize: none; background: transparent; font: 400 14.5px/1.6 'Inter', sans-serif; color: var(--ink); min-height: 72px; }
+    .contact textarea::placeholder { color: var(--faint); }
+    .contact .alt { font-size: 12.5px; color: var(--faint); margin-top: 14px; }
+    .contact .alt a { color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 22px 0; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--faint); flex-wrap: wrap; }
+    footer .mono { font-family: var(--mono); font-size: 11px; }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    .stagger > .reveal:nth-child(2) { transition-delay: .08s; }
+    .stagger > .reveal:nth-child(3) { transition-delay: .16s; }
+
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 56px; }
+      .eng { grid-template-columns: 1fr; gap: 20px; }
+      .eng-meta { position: static; }
+      .about { grid-template-columns: 1fr; gap: 32px; }
+      .ci-grid { grid-template-columns: 240px 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      .nav-links a:not(.btn) { display: none; }
+      .flow { grid-template-columns: 1fr; }
+      .flow-line { display: none; }
+      section.block { padding: 68px 0; }
+      .profile .kv { grid-template-columns: 1fr; gap: 2px; }
+      .ci-grid { grid-template-columns: 1fr; min-height: 0; }
+      .ci-list { border-right: 0; }
+      .ci-detail { display: none; }
+      .job-body { padding: 0 10px 12px 34px; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+      .ci-list li.open .job-body { display: block; animation: open .35s var(--ease); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal, .stage, .demo .row, .draw .row .msg { opacity: 1 !important; transform: none !important; }
+      .draw .g i, .draw .g .dot { transform: none !important; }
+      .draw .g svg path, .flow-line .br { stroke-dashoffset: 0 !important; }
+      .flow-dot { transform: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-wordmark">Open Chair Advisory</a>
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#" class="brand"><img src="favicon.svg" alt="" />Open Chair Advisory</a>
       <div class="nav-links">
-        <a href="#gtm">GTM</a>
-        <a href="#product">Product</a>
+        <a href="#how">How it works</a>
+        <a href="#work">Recent work</a>
         <a href="#bizops">Biz Ops</a>
         <a href="#about">About</a>
-        <a href="mailto:arwilliamson9@gmail.com" class="nav-cta">Get in touch</a>
+        <a href="#contact" class="btn">Get in touch</a>
       </div>
     </div>
+    <div class="progress" id="progress"></div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <p class="hero-eyebrow">Alex Williamson</p>
-      <h1 class="hero-name">Operator.<br>Here's the work.</h1>
-      <p class="hero-desc">
-        Fractional work across go-to-market, product, and operations. I step in where a team needs someone to own a function and get it done, then step out when the full-time hire is ready.
+  <!-- ================= HERO ================= -->
+  <header class="wrap hero">
+    <div>
+      <span class="eyebrow fade-up"><span class="pulse" id="status-dot"></span><span id="status-text">New engagements paused until February 2027</span></span>
+      <h1><span class="ln"><span>Operator.</span></span><span class="ln"><span>Here's the work.</span></span></h1>
+      <p class="lede fade-up" style="animation-delay:.25s">
+        I take fractional roles in go-to-market, product, and operations. When a company has a function nobody owns, I run it until the founder or a full-time hire can take over.
       </p>
-      <div class="hero-tags">
-        <span class="hero-tag">Go-to-market</span>
-        <span class="hero-tag">Product</span>
-        <span class="hero-tag">Business Operations</span>
+      <div class="hero-actions fade-up" style="animation-delay:.35s">
+        <a href="#contact" class="btn primary">Start a conversation</a>
+        <a href="#work" class="btn">See the work <span class="arr down">↓</span></a>
       </div>
+      <a class="featured-line fade-up" style="animation-delay:.45s" href="https://onworkbyshaina.substack.com/p/what-independents-are-building-with" target="_blank" rel="noopener">
+        <span class="tag grey">featured</span><u>On Work by Shaina Anderson: what independents are building with AI</u> <span>↗</span>
+      </a>
     </div>
-  </section>
 
-  <!-- GTM -->
-  <section id="gtm" class="section-wrap" style="background: #f8fafc;">
-    <div class="container">
-      <p class="section-label">Go-to-market</p>
-      <h2 class="section-title">Building the sales motion</h2>
-      <p class="section-intro">Pipeline work at an early-stage healthcare startup: from a blank spreadsheet to a structured sales process.</p>
+    <!-- Animated demo: an engagement drawn as a branch -->
+    <div class="demo" aria-label="Illustration: a GTM engagement shown as a branch that forks off, does the work, and merges back to the founder">
+      <div class="demo-top">
+        <button class="replay" id="d-replay" type="button" aria-label="Replay animation">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2.5v3h3"/></svg>Replay
+        </button>
+      </div>
 
-      <div class="work-block" style="border-top: none;">
-        <div class="work-meta">
-          <a href="https://dispatch.care/" target="_blank" rel="noopener" style="display: block; width: fit-content; margin-bottom: 12px; background: #0f2244; padding: 8px 14px; border-radius: 8px;">
-            <img src="data:image/png;base64,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" alt="Dispatch Care" style="height: 28px; width: auto; display: block;" />
-          </a>
-          <p class="work-type">GTM / BizOps Lead</p>
+      <div class="card stage" id="d-card">
+        <div class="pr-head">
+          <div class="pr-title">Founder GTM enablement <span class="num">#gtm</span></div>
+          <span class="pill conflict" id="d-pill">3 gaps</span>
         </div>
-        <div class="work-content">
-          <div class="work-items">
-            <div class="work-item">
-              <p class="work-item-label">Campaign Strategy</p>
-              <p>Built the outbound strategy against a defined account list: segmented targets by geography, bed count, and service mix, mapped decision-maker personas across CNOs, CNIOs, and COOs, and set the sequencing to exhaust warm paths before moving cold. Outreach wasn't sent until there was a clear reason to send it.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Pipeline Infrastructure</p>
-              <p>Stood up the CRM from zero: structured pipeline stages, built and maintained the target account list, and created a repeatable process for advancing contacts from first touch to meeting booked. Pipeline visibility went from the CEO's memory to a single source of truth.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Top-of-Funnel Execution</p>
-              <p>Owned outbound end-to-end: account research, personalized first contact, multi-touch follow-up cadencing, and meeting generation. Handled every stage from identifying the right person at the account to getting the calendar invite accepted.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Sales Collateral</p>
-              <p>Built the full asset stack from scratch: a CNO-facing pitch deck, a one-pager for leave-behinds, and a case study with defensible clinical outcome claims. Each asset was structured around what a CNO needs to build internal consensus, not what looks good in the room.</p>
-            </div>
-          </div>
+        <div class="graph" id="d-graph">
+          <div class="row first fork"><div class="g"></div><div class="msg">Founder is selling alone with no defined ICP</div></div>
+          <div class="row branch"><div class="g"></div><div class="msg">Define the ICP and buyer personas <span class="tag">open-chair/gtm</span></div></div>
+          <div class="row branch"><div class="g"></div><div class="msg">Sharpen positioning for each persona</div></div>
+          <div class="row branch"><div class="g"></div><div class="msg">Pick which campaigns to run, and in what order</div></div>
+          <div class="row branch"><div class="g"></div><div class="msg">Prep for the next industry conference</div></div>
+          <div class="row branch"><div class="g"></div><div class="msg">Write the playbook <span class="tag green">handoff</span></div></div>
+          <div class="row merge last strong"><div class="g"></div><div class="msg">Merged: the founder runs the motion</div></div>
+        </div>
+        <div class="checks" id="d-checks">
+          <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b>ICP</b> defined</span>
+          <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b>Positioning</b> set</span>
+          <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b>Playbook</b> written</span>
+        </div>
+        <div class="pr-foot">
+          <span class="state"><span class="spinner" id="d-spin" hidden></span><span id="d-state">Waiting on an owner</span></span>
+          <span class="btn" id="d-btn" style="pointer-events:none;padding:6px 11px;font-size:12px;">Step in</span>
         </div>
       </div>
 
-    </div>
-  </section>
+      <p class="demo-summary stage" id="d-summary">
+        The work branches off to <code>open-chair</code> while it gets built. When it merges back, the founder has a playbook and can keep running it.
+      </p>
 
-  <!-- PRODUCT -->
-  <section id="product" class="section-wrap">
-    <div class="container">
-      <p class="section-label">Product</p>
-      <h2 class="section-title">Taking a product to launch</h2>
-      <p class="section-intro">End-to-end product work for a medical education app: from a messy pre-launch state to live users in a new market.</p>
-
-      <div class="work-block" style="border-top: none;">
-        <div class="work-meta">
-          <a href="https://krootapp.com/" target="_blank" rel="noopener" style="display: block; width: fit-content; margin-bottom: 12px;">
-            <img src="data:image/jpeg;base64,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" alt="Kroot" style="height: 36px; width: auto; display: block; border-radius: 6px;" />
-          </a>
-          <p class="work-type">Product Lead</p>
-        </div>
-        <div class="work-content">
-          <div class="work-items">
-            <div class="work-item">
-              <p class="work-item-label">Product Audit</p>
-              <p>Mapped the full user flow from onboarding through spaced repetition to payment, then documented every critical bug, UX friction point, and gap between build and spec. Delivered a prioritized backlog with severity ratings and acceptance criteria — not a list of observations, but a dev-ready work queue.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Launch Planning</p>
-              <p>Wrote the 90-day launch plan with milestone-gated phases: each phase had defined exit criteria, not just a task list. Broke work down by workstream — product, content, dev, user research — assigned ownership, and built in checkpoints where the team could validate progress before advancing.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Payment Strategy</p>
-              <p>Evaluated three monetization paths: App Store-first, web-first, and hybrid. Produced a decision memo covering build complexity, expected conversion rates by path, regional compliance requirements, and time-to-revenue for each option. The team chose web-first based on the tradeoffs.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">User Research</p>
-              <p>Ran 10 structured discovery sessions with medical students in the target market. Wrote the discussion guide, recruited participants, and synthesized findings into a short brief covering subject prioritization, willingness-to-pay range, and actual study behavior versus what the team had assumed.</p>
-            </div>
-            <div class="work-item">
-              <p class="work-item-label">Closed Beta</p>
-              <p>Designed and ran the closed beta with 20 users: structured feedback forms, weekly synthesis loops, and a bug triage process tied to severity. Defined the core launch metrics before going live — activation rate (day-1 action completion), 7-day and 30-day retention, and session frequency — so the team had a baseline to measure against at soft launch.</p>
-            </div>
-          </div>
+      <div class="composer stage" id="d-composer" aria-hidden="true">
+        <div class="input"><span id="d-type"></span><span class="caret"></span></div>
+        <div class="bar">
+          <div class="left"><span class="chip">＋</span><span class="chip">GTM</span><span class="chip">Product</span><span class="chip">Biz Ops</span></div>
+          <span class="send"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></span>
         </div>
       </div>
-
     </div>
-  </section>
+  </header>
 
-  <!-- BIZ OPS -->
-  <section id="bizops" class="section-wrap" style="background: #f8fafc;">
-    <div class="container">
-      <p class="section-label">Business operations</p>
-      <h2 class="section-title">Keeping the machine running</h2>
-      <p class="section-intro">Operational work across early-stage startups and large organizations: project coordination, hiring, process design, and everything that falls between functions.</p>
-
-      <div class="bizops-grid">
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Project Coordination</p>
-          <p>Managed concurrent workstreams across multiple engagements at startup and enterprise scale. Owned status tracking, ran weekly standups, escalated blockers early, and documented decisions in real time. Cross-functional work stalls at handoff points — this is the work that prevents that.</p>
-        </div>
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Hiring Support</p>
-          <p>Supported a hiring push at an early-stage startup during a growth period: built role scorecards, ran initial screens, and gave the founder a structured evaluation framework. Moved from reactive, gut-feel hiring to a repeatable process with defined criteria.</p>
-        </div>
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Vendor Management</p>
-          <p>Managed a difficult transition with an external dev team: scoped the deliverables owed, reviewed contract terms, and drafted all outbound communications. Managed the back-and-forth through to a clean handoff while protecting the company's position throughout.</p>
-        </div>
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Process Documentation</p>
-          <p>Built operational playbooks across multiple engagements: content production workflows, QA checklists, bug triage systems, partner tracking. Written for the person who'd inherit the process, not for completeness. Designed to be used, not filed.</p>
-        </div>
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Stakeholder Communications</p>
-          <p>Owned external communications across startup and consulting contexts: partner follow-up, investor updates, and client-facing status reporting. Kept communications on cadence and structured so recipients had what they needed to act — not forwarded Slack threads.</p>
-        </div>
-
-        <div class="bizops-card">
-          <p class="bizops-card-label">Reporting &amp; Tracking</p>
-          <p>Built lightweight reporting systems that surfaced what actually mattered: pipeline health, sprint completion rate, open action items, budget vs. actuals. Designed for the person reading it, not the person building it.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about-strip">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-body">
-          <p class="section-label" style="margin-bottom: 16px;">About</p>
-          <h2 class="section-title" style="margin-bottom: 28px;">Alex Williamson</h2>
-          <p>
-            I run Open Chair Advisory, a fractional practice where I step into early-stage companies and own whatever is pressing but lacking ownership. That's usually GTM, product operations, or biz ops, sometimes all three at once.
-          </p>
-          <p>
-            Most of my work has been in healthtech, but the problems I solve aren't industry-specific. If you need someone to build the thing, not just advise on it, that's the work I do.
-          </p>
-          <div style="display: flex; gap: 20px; margin-top: 24px;">
-            <a href="https://www.linkedin.com/in/alexwilliamson242/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #0d9488; text-decoration: none; letter-spacing: -0.01em;">LinkedIn</a>
-            <a href="https://arwilliamson.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #0d9488; text-decoration: none; letter-spacing: -0.01em;">Substack</a>
-          </div>
-        </div>
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how" class="block">
+    <div class="wrap">
+      <div class="sec-head reveal">
         <div>
-          <p
+          <p class="kicker">// how it works</p>
+          <h2>Fork, ship, merge back.</h2>
+        </div>
+        <p class="sec-intro">Each engagement runs like a branch. It exists to get one function working, then folds back into the team.</p>
+      </div>
+      <div class="flow-wrap reveal">
+        <div class="flow-line" aria-hidden="true">
+          <svg viewBox="0 0 1000 56" preserveAspectRatio="none">
+            <path class="main" d="M0 46 H1000" />
+            <path class="br" pathLength="1" d="M60 46 C110 46, 110 18, 166 18 H833 C890 18, 890 46, 940 46" />
+          </svg>
+          <span class="flow-dot"></span><span class="flow-dot"></span><span class="flow-dot"></span>
+          <span class="runner"></span>
+        </div>
+        <div class="flow stagger">
+          <div class="card step reveal">
+            <div class="n"><span class="tag grey">01 · fork</span><span class="pill conflict">Open seat</span></div>
+            <h3>Take the open chair</h3>
+            <p>A company has urgent work and nobody assigned to it. Usually that's the sales motion or a product that needs to get to launch. I take ownership of it.</p>
+          </div>
+          <div class="card step reveal">
+            <div class="n"><span class="tag grey">02 · ship</span><span class="pill merging">In progress</span></div>
+            <h3>Build it and run it</h3>
+            <p>I make the pieces myself, from the CRM to the launch plan, and keep running them until they work without me.</p>
+          </div>
+          <div class="card step reveal">
+            <div class="n"><span class="tag grey">03 · merge</span><span class="pill merged">Handed off</span></div>
+            <h3>Hand back the seat</h3>
+            <p>When the founder or a full-time hire is ready to take over, they get a working function and a playbook written for them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RECENT WORK ================= -->
+  <section id="work" class="block" style="background: var(--bg-soft);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="kicker">// recent work</p>
+          <h2>Recent work</h2>
+        </div>
+        <p class="sec-intro">Click a line to read what I did.</p>
+      </div>
+
+      <!-- GTM: Dispatch -->
+      <article class="eng" id="gtm">
+        <div class="eng-meta reveal">
+          <a href="https://dispatch.care/" target="_blank" rel="noopener" class="logo-link logo-dispatch"><img src="data:image/png;base64,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" alt="Dispatch Care" /></a>
+          <h3>Founder enablement</h3>
+          <p>An early-stage healthcare startup where the founder was doing all the selling. I helped work out who to sell to, how to talk about the product, and which campaigns to run.</p>
+          <div class="role"><span class="tag">gtm</span><span class="tag grey">GTM / BizOps Lead</span></div>
+        </div>
+        <div class="card draw" style="--c: var(--blue);">
+          <div class="pr-head">
+            <div class="pr-title">Dispatch Care <span class="num">· go-to-market</span></div>
+            <span class="pill open">Shipped</span>
+          </div>
+          <div class="graph">
+            <details class="commit"><summary><div class="row first fork"><div class="g"></div><div class="msg">ICP and buyer personas <span class="tag">icp</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I segmented target accounts by geography, bed count, and service mix, then mapped the people who make the buying decision: CNOs, CNIOs, and COOs. The founder came away with a defined account list and a clear picture of who to talk to at each one.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Positioning and sales collateral <span class="tag">deck</span><span class="tag">one-pager</span><span class="tag">case-study</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I wrote a pitch deck aimed at CNOs, a one-pager to leave behind after meetings, and a case study with clinical outcome claims we could defend. Each piece was built around what a CNO needs to win support from colleagues inside the hospital.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Campaign strategy <span class="tag">outbound</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I laid out which campaigns to run against the account list and in what order. Warm introductions went first, and cold outreach started only after those were used up. I also ran the outreach myself at the start, from account research through to booked meetings, so the founder could see the sequence working.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Conference prep <span class="tag">events</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I got the founder ready for industry conferences, using the ICP and positioning work to decide who was worth meeting there and what to say to them.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Pipeline in a CRM <span class="tag">crm</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I set up the CRM from scratch, with defined pipeline stages and a repeatable path from first contact to booked meeting. Before that, the pipeline lived in the CEO's head.</div></details>
+            <div class="row merge last strong"><div class="g"></div><div class="msg">Merged: the founder runs a defined sales motion</div></div>
+          </div>
+          <div class="checks">
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b>ICP</b> and personas defined</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="3">3</b> sales assets</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b>CRM</b> set up from scratch</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRODUCT: Kroot -->
+      <article class="eng" id="product">
+        <div class="eng-meta reveal">
+          <a href="https://krootapp.com/" target="_blank" rel="noopener" class="logo-link logo-kroot"><img src="data:image/jpeg;base64,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" alt="Kroot" /></a>
+          <h3>Taking a product to launch</h3>
+          <p>A medical education app that was stuck before launch. I took it through to live users in a new market.</p>
+          <div class="role"><span class="tag green">product</span><span class="tag grey">Product Lead</span></div>
+        </div>
+        <div class="card draw" style="--c: var(--green);">
+          <div class="pr-head">
+            <div class="pr-title">Kroot <span class="num">· product launch</span></div>
+            <span class="pill open">Shipped</span>
+          </div>
+          <div class="graph">
+            <details class="commit"><summary><div class="row first fork"><div class="g"></div><div class="msg">Product audit <span class="tag green">backlog</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I walked the whole user flow, from onboarding through spaced repetition to payment, and logged every critical bug, UX problem, and gap between what was built and what was specced. The result was a prioritized backlog with severity ratings and acceptance criteria that developers could pick up directly.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Launch plan <span class="tag green">90-day</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I wrote a 90-day launch plan in phases, each with exit criteria the team had to meet before moving on. The work was split by workstream (product, content, development, and user research), and every workstream had an owner.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Payment strategy <span class="tag green">decision memo</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I compared three ways to charge: App Store first, web first, or a hybrid. The memo covered build complexity, expected conversion on each path, regional compliance rules, and how long each would take to bring in revenue. The team went with web first.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">User research <span class="tag green">10 sessions</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I ran 10 structured discovery sessions with medical students in the target market, including writing the discussion guide and recruiting participants. My brief afterward covered which subjects they prioritized, what they'd pay, and how they actually studied compared with what the team had assumed.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Closed beta <span class="tag green">20 users</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I ran a closed beta with 20 users, with structured feedback forms, a weekly synthesis, and bug triage by severity. Before going live I set the launch metrics (activation, 7-day and 30-day retention, and session frequency), which gave the team a baseline for the soft launch.</div></details>
+            <div class="row merge last strong"><div class="g"></div><div class="msg">Merged: live users in a new market</div></div>
+          </div>
+          <div class="checks">
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="3">3</b> payment paths compared</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="10">10</b> discovery sessions</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="20">20</b>-user closed beta</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= BIZ OPS ================= -->
+  <section id="bizops" class="block">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="kicker">// business operations</p>
+          <h2>Keeping the machine running</h2>
+        </div>
+        <p class="sec-intro">Operations work at early-stage startups and larger organizations, mostly the tasks that sit between teams.</p>
+      </div>
+
+      <div class="card ci reveal" id="ci">
+        <div class="pr-head">
+          <div class="pr-title">open-chair <span class="num">/ ops checks</span></div>
+          <span class="pill merging" id="ci-pill">Queued</span>
+        </div>
+        <div class="ci-grid">
+          <ul class="ci-list" role="tablist" aria-label="Operations work">
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Project coordination</span><span class="tag grey">ops</span></button>
+              <div class="job-body">I've run several workstreams at once at startups and larger companies: tracking status, running weekly standups, raising blockers early, and writing down decisions as they were made. Cross-team work tends to stall at handoffs, and this keeps it moving.</div></li>
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Hiring support</span><span class="tag grey">people</span></button>
+              <div class="job-body">During one startup's growth push I wrote role scorecards, ran first-round screens, and gave the founder a framework for evaluating candidates. Hiring went from gut calls to a process with set criteria.</div></li>
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Vendor management</span><span class="tag grey">contracts</span></button>
+              <div class="job-body">When a company parted ways with an outside dev team, I scoped what was still owed, reviewed the contract, and wrote every outgoing message. The handoff finished cleanly and the company's position stayed protected.</div></li>
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Process documentation</span><span class="tag grey">playbooks</span></button>
+              <div class="job-body">I've written playbooks for content production, QA, bug triage, and partner tracking. I write them for whoever inherits the process next, which is why they get used.</div></li>
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Stakeholder updates</span><span class="tag grey">comms</span></button>
+              <div class="job-body">I've handled partner follow-ups, investor updates, and status reports for clients, sent on a regular schedule in a format the reader can act on right away.</div></li>
+            <li><button class="job" role="tab" type="button"><span class="st"><span class="q"></span></span><span class="nm">Reporting</span><span class="tag grey">metrics</span></button>
+              <div class="job-body">I build simple reports on pipeline health, sprint completion, open action items, and budget against actuals, laid out for the person who has to read them.</div></li>
+          </ul>
+          <div class="ci-detail" id="ci-detail" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="block" style="background: var(--bg-soft);">
+    <div class="wrap about">
+      <div class="about-body reveal">
+        <p class="kicker">// about</p>
+        <h2 style="margin-bottom: 22px;">Alex Williamson</h2>
+        <p>I run Open Chair Advisory, a fractional practice. I join early-stage companies and take on the urgent work nobody owns yet. Usually that's GTM, product operations, or business operations, and sometimes it's all three at once.</p>
+        <p>Most of my clients have been in health tech, though the problems I work on show up in every industry. I do the building and the running myself.</p>
+        <div class="links">
+          <a class="btn" href="https://www.linkedin.com/in/alexwilliamson242/" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
+          <a class="btn" href="https://arwilliamson.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noopener">Substack <span class="arr">↗</span></a>
+        </div>
+      </div>
+      <div class="side">
+        <div class="card profile reveal">
+          <div class="pr-head">
+            <div class="pr-title">open-chair <span class="num">/ README</span></div>
+            <span class="pill conflict" id="about-pill">Paused</span>
+          </div>
+          <div class="kv"><span class="k">model</span><span class="v">Fractional. I run the function until the founder or a full-time hire takes over.</span></div>
+          <div class="kv"><span class="k">functions</span><span class="v">Go-to-market · Product · Business operations</span></div>
+          <div class="kv"><span class="k">clients</span><span class="v">Early-stage companies, mostly health tech</span></div>
+          <div class="kv"><span class="k">availability</span><span class="v" id="about-avail">New engagements open February 2027</span></div>
+        </div>
+        <a class="card press reveal" href="https://onworkbyshaina.substack.com/p/what-independents-are-building-with" target="_blank" rel="noopener">
+          <div class="src"><span>On Work by Shaina Anderson · June 2026</span><span class="tag grey">featured</span></div>
+          <h4>What independents are building with AI</h4>
+          <p>Shaina asked 11 fractional operators to show what they've built. Mine is Command Center, a skill that pulls from my email, calendar, Slack, Granola, and Notion every Monday and flags what needs my attention that week.</p>
+          <span class="go">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="block contact">
+    <div class="wrap">
+      <p class="kicker reveal">// get in touch</p>
+      <h2 class="reveal">Got an open chair?</h2>
+      <p class="sec-intro reveal" id="contact-intro">New engagements are paused until February 2027. If you'll need help after that, tell me what's coming up.</p>
+      <form class="composer reveal" id="contact-form">
+        <label for="msg" class="sr">Message</label>
+        <textarea id="msg" rows="3" placeholder="e.g. I'm the only one selling and need help working out who to target…"></textarea>
+        <div class="bar">
+          <div class="left" role="group" aria-label="Areas">
+            <button type="button" class="chip" aria-pressed="false">GTM</button>
+            <button type="button" class="chip" aria-pressed="false">Product</button>
+            <button type="button" class="chip" aria-pressed="false">Biz Ops</button>
+          </div>
+          <button type="submit" class="send" aria-label="Send by email"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></button>
+        </div>
+      </form>
+      <p class="alt reveal">This opens your email app. You can also write to <a href="mailto:arwilliamson9@gmail.com">arwilliamson9@gmail.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="yr">2026</span> Open Chair Advisory</span>
+      <span class="mono">main · all checks passing</span>
+    </div>
+  </footer>
+
+  <script>
+    var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var CHECK_SVG = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg>';
+
+    /* ---- Availability: flips automatically on 1 Feb 2027 ---- */
+    (function () {
+      var REOPEN = new Date(2027, 1, 1); // local midnight, 1 February 2027
+      var url = new URLSearchParams(location.search).get('open'); // ?open=1 previews the open state
+      if (new Date() >= REOPEN || url === '1') {
+        document.getElementById('status-dot').classList.add('on');
+        document.getElementById('status-text').textContent = 'Taking new engagements';
+        var p = document.getElementById('about-pill'); p.className = 'pill open'; p.textContent = 'Available';
+        document.getElementById('about-avail').textContent = 'Taking new engagements';
+        document.getElementById('contact-intro').textContent = "Tell me what's urgent and who owns it right now.";
+      }
+    })();
+
+    /* ---- Commit-graph gutters ---- */
+    document.querySelectorAll('.graph').forEach(function (graph) {
+      graph.querySelectorAll('.row').forEach(function (row, i) {
+        var g = row.querySelector('.g'); if (!g) return;
+        row.style.setProperty('--i', i);
+        var fork = row.classList.contains('fork'), merge = row.classList.contains('merge'), br = row.classList.contains('branch');
+        var h = '<i class="lm"></i>';
+        if (br || fork) h += '<i class="lb"></i>';
+        if (fork)  h += '<svg viewBox="0 0 36 15"><path d="M10 0 C10 9, 26 6, 26 15"/></svg>';
+        if (merge) h += '<svg viewBox="0 0 36 15"><path d="M26 0 C26 9, 10 6, 10 15"/></svg>';
+        g.innerHTML = h + '<i class="dot"></i>';
+      });
+    });
+
+    /* ---- Count-up numbers ---- */
+    function countUp(el) {
+      var to = +el.dataset.count; if (REDUCE || !to) return;
+      var t0 = null;
+      (function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 900, 1);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(performance.now());
+    }
+
+    /* ---- Scroll reveal ---- */
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in'); io.unobserve(e.target);
+        e.target.querySelectorAll('[data-count]').forEach(function (n) { setTimeout(function () { countUp(n); }, 500); });
+        if (e.target.id === 'ci') runChecks();
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .draw, .flow-wrap').forEach(function (el) { io.observe(el); });
+
+    /* ---- Nav: scroll progress + active section ---- */
+    (function () {
+      var bar = document.getElementById('progress');
+      var links = {}; document.querySelectorAll('.nav-links a:not(.btn)').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+      function onScroll() {
+        var max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+        var cur = null;
+        ['how', 'work', 'bizops', 'about'].forEach(function (id) {
+          var s = document.getElementById(id); if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = id;
+        });
+        if (document.getElementById('contact').getBoundingClientRect().top < innerHeight * 0.5) cur = null;
+        Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === cur); });
+      }
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+
+    /* ---- Hero demo ---- */
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var rows = [].slice.call(document.querySelectorAll('#d-graph .row'));
+      var checks = [].slice.call(document.querySelectorAll('#d-checks .check'));
+      var pill = $('d-pill'), state = $('d-state'), spin = $('d-spin'), btn = $('d-btn'), replay = $('d-replay');
+      var prompt = "I'm the only one selling. Who should we go after, and how?";
+      var timers = [];
+
+      function setPill(cls, text) { pill.className = 'pill ' + cls; pill.textContent = text; void pill.offsetWidth; pill.classList.add('pop'); }
+      function show(id) { $(id).classList.add('in'); }
+
+      function reset() {
+        timers.forEach(clearTimeout); timers = [];
+        ['d-composer', 'd-card', 'd-summary'].forEach(function (id) { $(id).classList.remove('in'); });
+        rows.forEach(function (r) { r.classList.remove('in'); });
+        checks.forEach(function (c) { c.classList.remove('ok'); });
+        $('d-type').textContent = ''; spin.hidden = true;
+        pill.className = 'pill conflict'; pill.textContent = '3 gaps';
+        state.textContent = 'Waiting on an owner'; btn.textContent = 'Step in';
+        replay.classList.remove('show');
+      }
+      function finalState() {
+        ['d-composer', 'd-card', 'd-summary'].forEach(show);
+        $('d-type').textContent = prompt;
+        rows.forEach(function (r) { r.classList.add('in'); });
+        checks.forEach(function (c) { c.classList.add('ok'); });
+        pill.className = 'pill merged'; pill.textContent = 'Merged';
+        state.textContent = 'Handed back to the founder'; btn.textContent = 'Merged ✓';
+      }
+      function run() {
+        reset();
+        var t = 0; function at(ms, fn) { t += ms; timers.push(setTimeout(fn, t)); }
+        at(250, function () { show('d-composer'); });
+        at(400, function () {
+          var i = 0, el = $('d-type');
+          (function tick() { el.textContent = prompt.slice(0, ++i); if (i < prompt.length) timers.push(setTimeout(tick, 26)); })();
+        });
+        t += prompt.length * 26;
+        at(450, function () { show('d-card'); });
+        rows.forEach(function (r, i) { at(i === 0 ? 250 : 320, function () { r.classList.add('in'); }); });
+        at(250, function () { setPill('open', 'Open'); state.textContent = 'Branch active, work in progress'; btn.textContent = 'Shipping'; });
+        checks.forEach(function (c) { at(380, function () { c.classList.add('ok'); }); });
+        at(450, function () { setPill('merging', 'Ready to merge'); state.textContent = 'All checks passed'; btn.textContent = 'Merge'; });
+        at(800, function () { spin.hidden = false; state.textContent = 'Merging back to the founder…'; btn.textContent = 'Merging'; });
+        at(1300, function () {
+          spin.hidden = true; setPill('merged', 'Merged');
+          state.textContent = 'Handed back to the founder'; btn.textContent = 'Merged ✓';
+          show('d-summary');
+        });
+        at(600, function () { replay.classList.add('show'); });
+      }
+      replay.addEventListener('click', run);
+      if (REDUCE) { finalState(); return; }
+      run();
+    })();
+
+    /* ---- Biz Ops checks panel ---- */
+    var runChecks = (function () {
+      var items = [].slice.call(document.querySelectorAll('#ci .ci-list li'));
+      var detail = document.getElementById('ci-detail');
+      var pill = document.getElementById('ci-pill');
+      var done = 0, started = false, cycle = null, userPicked = false, sel = -1;
+
+      function setStatus(li, s) {
+        var st = li.querySelector('.st');
+        st.innerHTML = s === 'run' ? '<span class="spinner"></span>' : s === 'ok' ? CHECK_SVG : '<span class="q"></span>';
+      }
+      function select(i) {
+        if (i === sel) return; sel = i;
+        items.forEach(function (li, k) { li.querySelector('.job').setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+        var li = items[i], name = li.querySelector('.nm').textContent, tag = li.querySelector('.tag').textContent;
+        var passed = li.dataset.ok === '1';
+        detail.innerHTML =
+          '<div class="swap"><div class="hd"><h3>' + name + '</h3><span class="tag grey">' + tag + '</span></div></div>' +
+          '<div class="log swap">$ open-chair run ' + tag + '<br>' + (passed ? '<span class="ok">✓ passed</span>' : 'running…') + '</div>' +
+          '<p class="swap">' + li.querySelector('.job-body').textContent + '</p>';
+      }
+      items.forEach(function (li, i) {
+        li.querySelector('.job').addEventListener('click', function () {
+          userPicked = true; clearInterval(cycle);
+          if (window.matchMedia('(max-width: 640px)').matches) {
+            var was = li.classList.contains('open');
+            items.forEach(function (x) { x.classList.remove('open'); });
+            if (!was) li.classList.add('open');
+          }
+          sel = -1; select(i);
+        });
+      });
+      function finish() {
+        pill.className = 'pill open'; pill.textContent = items.length + ' passing';
+        if (!userPicked) {
+          cycle = setInterval(function () { if (!userPicked) select((sel + 1) % items.length); }, 5000);
+        }
+      }
+      function markAll() { items.forEach(function (li) { li.dataset.ok = '1'; setStatus(li, 'ok'); }); }
+
+      if (REDUCE) { markAll(); select(0); pill.className = 'pill open'; pill.textContent = items.length + ' passing'; return function () {}; }
+      select(0);
+      return function () {
+        if (started) return; started = true;
+        (function next() {
+          if (done >= items.length) return finish();
+          var li = items[done];
+          setStatus(li, 'run'); pill.textContent = 'Running ' + (done + 1) + '/' + items.length;
+          if (!userPicked) { sel = -1; select(done); }
+          setTimeout(function () {
+            li.dataset.ok = '1'; setStatus(li, 'ok');
+            if (!userPicked && sel === done) { sel = -1; select(done); }
+            done++; next();
+          }, 650);
+        })();
+      };
+    })();
+
+    /* ---- Contact composer -> mailto ---- */
+    (function () {
+      var form = document.getElementById('contact-form');
+      var chips = form.querySelectorAll('button.chip');
+      chips.forEach(function (c) {
+        c.addEventListener('click', function () { c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+      });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var send = form.querySelector('.send'); send.classList.remove('sent'); void send.offsetWidth; send.classList.add('sent');
+        var areas = [].filter.call(chips, function (c) { return c.getAttribute('aria-pressed') === 'true'; }).map(function (c) { return c.textContent; });
+        var subject = 'Open Chair inquiry' + (areas.length ? ' (' + areas.join(', ') + ')' : '');
+        var body = document.getElementById('msg').value.trim();
+        setTimeout(function () {
+          window.location.href = 'mailto:arwilliamson9@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        }, 300);
+      });
+    })();
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
