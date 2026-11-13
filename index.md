@@ -91,7 +91,7 @@ At Dispatch Care, an early-stage healthcare startup, the work was founder enable
 
 ### What kinds of companies does Alex Williamson work with?
 
-Mostly early-stage health tech and medical device companies, plus larger healthcare organizations such as a national clinical contact center network with 8,000+ staff across 170+ sites. The work itself (rolling out a system, running operations between teams, building a sales motion) applies in any industry.
+Mostly early-stage health tech and medical device companies, plus larger healthcare organizations such as a national clinical contact center network with 8,000+ staff across 170+ sites. The work itself, whether a system rollout or a sales motion, carries over to any industry.
 
 ### What other business operations work does Alex Williamson do?
 
@@ -99,7 +99,7 @@ Project coordination across several workstreams, hiring support (role scorecards
 
 ### How is a fractional operator different from a consultant?
 
-Alex does the work directly. In past engagements that meant leading a scheduler rollout, building staffing models, and setting up the CRM personally, then handing the function to its next owner along with a written playbook.
+Alex does the work directly. At the VA, Alex led the scheduler rollout and built the staffing models; at Dispatch Care, Alex set up the CRM. Each function then went to its next owner along with a written playbook.
 
 ### Is Alex Williamson taking new engagements?
 
