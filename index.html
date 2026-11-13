@@ -25,7 +25,8 @@
       "email": "mailto:arwilliamson9@gmail.com",
       "sameAs": [
         "https://www.linkedin.com/in/alexwilliamson242/",
-        "https://arwilliamson.substack.com/"
+        "https://arwilliamson.substack.com/",
+        "https://hellogeneralist.com/operators/alexander-williamson"
       ],
       "worksFor": {
         "@id": "https://openchairadvisory.com/#practice"
@@ -40,6 +41,8 @@
         "Product launch planning",
         "User research",
         "Business operations",
+        "Workforce modeling",
+        "Organizational design",
         "Health tech",
         "Medical devices"
       ],
@@ -149,7 +152,15 @@
           "name": "What kinds of companies does Alex Williamson work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mostly early-stage health tech and medical device companies. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry."
+            "text": "Mostly early-stage health tech and medical device companies, plus larger healthcare organizations such as a national clinical contact center network with 170+ sites. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Alex Williamson do workforce modeling and org design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For a national clinical contact center network with 170+ sites, Alex mapped the workforce to its service lines, applied one full-time-equivalent staffing method across departments, and built a future-state model that cut 15 to 20 tracked positions per service down to 4 to 5. When leadership consolidated 18 regional networks into 5, Alex modeled headcount allocation and tested supervisor-to-staff ratios of 1:10, 1:12, and 1:16, giving leadership 3 to 5 costed options."
           }
         },
         {
@@ -455,6 +466,9 @@
     .eng-meta h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 8px; }
     .eng-meta p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
     .role { display: flex; gap: 6px; flex-wrap: wrap; }
+    .logo-tile { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; padding: 8px 12px 8px 10px; border-radius: 9px; background: var(--violet-soft); color: var(--violet); }
+    .logo-tile svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .logo-tile span { font-family: var(--mono); font-size: 10.5px; line-height: 1.35; letter-spacing: .02em; text-transform: uppercase; }
 
     details.commit summary { list-style: none; cursor: pointer; display: block; border-radius: 8px; transition: background .15s; }
     details.commit summary::-webkit-details-marker { display: none; }
@@ -780,6 +794,43 @@
           </div>
         </div>
       </article>
+
+      <!-- BIZOPS: National clinical contact center -->
+      <article class="eng" id="contact-center">
+        <div class="eng-meta reveal">
+          <div class="logo-tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg>
+            <span>National clinical<br />contact center</span>
+          </div>
+          <h3>Reorganizing a national contact center network</h3>
+          <p>A national clinical contact center network with 170+ sites was going through a major reorganization. I built the workforce and staffing models leadership used to plan it.</p>
+          <div class="role"><span class="tag" style="color:var(--violet);background:var(--violet-soft)">bizops</span><span class="tag grey">Org design / workforce modeling</span></div>
+        </div>
+        <div class="card draw" style="--c: var(--violet);">
+          <div class="pr-head">
+            <div class="pr-title">Contact center reorg <span class="num">· workforce modeling</span></div>
+            <span class="pill open">Shipped</span>
+          </div>
+          <div class="graph">
+            <details class="commit"><summary><div class="row first fork"><div class="g"></div><div class="msg">Workforce mapping <span class="tag" style="color:var(--violet);background:var(--violet-soft)">data</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I mapped the client's workforce data to its core service lines, then widened the scope to cover leadership and administrative support roles. Executive roles were left out, and data anomalies went to the client for review.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">One staffing method everywhere <span class="tag" style="color:var(--violet);background:var(--violet-soft)">fte</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I applied a single full-time-equivalent staffing method across departments using regional network data. Clear inclusion rules meant every role was counted the same way in every service line.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Future-state staffing model</div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">The model took a current state of 15 to 20 tracked positions per service down to a future-state shell of 4 to 5 positions per service, simple enough for leadership to plan with directly.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Regional consolidation <span class="tag" style="color:var(--violet);background:var(--violet-soft)">18 → 5</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">Leadership was consolidating 18 regional networks into 5, which meant facilities and their staff would move across new boundaries. I allocated headcount to the new regions using each facility's share of regional enrollment as a stand-in for demand.</div></details>
+            <details class="commit"><summary><div class="row branch"><div class="g"></div><div class="msg">Supervisor ratio scenarios <span class="tag" style="color:var(--violet);background:var(--violet-soft)">excel</span></div><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg></div></summary>
+              <div class="commit-body">I built an adjustable Excel model that tested supervisor-to-staff ratios of 1:10, 1:12, and 1:16 and showed the supervisory surplus under each. Known data gaps, such as inconsistent role names, were written down so leadership knew where the numbers were soft. I then cleaned the model up for an executive audience and delivered it to the client's project sponsor.</div></details>
+            <div class="row merge last strong"><div class="g"></div><div class="msg">Merged: leadership got 3 to 5 costed options</div></div>
+          </div>
+          <div class="checks">
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="170" data-suffix="+">170+</b> sites</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="18">18</b> regions modeled into 5</span>
+            <span class="check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6.5" stroke-width="1.5"/><path d="M5 8.2l2 2 4-4"/></svg><b data-count="3">3</b> supervisor ratios tested</span>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -879,22 +930,26 @@
           </details>
           <details class="qa">
             <summary><span class="tag grey">q04</span><span class="qq">What kinds of companies does Alex Williamson work with?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
-            <p>Mostly early-stage health tech and medical device companies. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry.</p>
+            <p>Mostly early-stage health tech and medical device companies, plus larger healthcare organizations such as a national clinical contact center network with 170+ sites. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry.</p>
           </details>
           <details class="qa">
-            <summary><span class="tag grey">q05</span><span class="qq">How is a fractional operator different from a consultant?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
+            <summary><span class="tag grey">q05</span><span class="qq">Does Alex Williamson do workforce modeling and org design?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
+            <p>Yes. For a national clinical contact center network with 170+ sites, Alex mapped the workforce to its service lines, applied one full-time-equivalent staffing method across departments, and built a future-state model that cut 15 to 20 tracked positions per service down to 4 to 5. When leadership consolidated 18 regional networks into 5, Alex modeled headcount allocation and tested supervisor-to-staff ratios of 1:10, 1:12, and 1:16, giving leadership 3 to 5 costed options.</p>
+          </details>
+          <details class="qa">
+            <summary><span class="tag grey">q06</span><span class="qq">How is a fractional operator different from a consultant?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
             <p>Alex does the work directly. In past engagements that meant running outbound, leading user research sessions, and setting up the CRM personally, then handing the function to its next owner along with a written playbook.</p>
           </details>
           <details class="qa">
-            <summary><span class="tag grey">q06</span><span class="qq">What business operations work does Alex Williamson do?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
+            <summary><span class="tag grey">q07</span><span class="qq">What business operations work does Alex Williamson do?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
             <p>Project coordination across several workstreams, hiring support (role scorecards and first-round screens), vendor management, process documentation and playbooks, investor and stakeholder updates, and reporting on pipeline, sprints, and budget against actuals. Alex has also worked on workforce modeling, investor decks, and compliance.</p>
           </details>
           <details class="qa">
-            <summary><span class="tag grey">q07</span><span class="qq">Is Alex Williamson taking new engagements?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
+            <summary><span class="tag grey">q08</span><span class="qq">Is Alex Williamson taking new engagements?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
             <p>Alex is booking new engagements starting February 2027. To talk about work after that date, email arwilliamson9@gmail.com.</p>
           </details>
           <details class="qa">
-            <summary><span class="tag grey">q08</span><span class="qq">How do I contact Alex Williamson?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
+            <summary><span class="tag grey">q09</span><span class="qq">How do I contact Alex Williamson?</span><svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg></summary>
             <p>Email arwilliamson9@gmail.com, or send a message through the contact form at https://openchairadvisory.com. Alex is also on LinkedIn and Substack.</p>
           </details>
       </div>
@@ -968,7 +1023,7 @@
       (function step(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / 900, 1);
-        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + (el.dataset.suffix || '');
         if (p < 1) requestAnimationFrame(step);
       })(performance.now());
     }

@@ -6,6 +6,7 @@
 - Email: arwilliamson9@gmail.com
 - LinkedIn: https://www.linkedin.com/in/alexwilliamson242/
 - Substack: https://arwilliamson.substack.com/
+- Hello Generalist: https://hellogeneralist.com/operators/alexander-williamson
 - Availability: booking new engagements starting February 2027
 - Last updated: 2026-11-13
 
@@ -43,6 +44,18 @@ Kroot is a medical education app that was stuck before launch. Alex's role: Prod
 
 Result: live users in a new market.
 
+### National clinical contact center network: reorganization (business operations)
+
+A national clinical contact center network with 170+ sites was going through a major reorganization. Alex built the workforce and staffing models leadership used to plan it.
+
+- **Workforce mapping.** Mapped the client's workforce data to its core service lines, then widened the scope to leadership and administrative support roles. Executive roles were left out and data anomalies were flagged for review.
+- **One staffing method everywhere.** Applied a single full-time-equivalent staffing method across departments using regional network data, with clear inclusion rules so every role was counted the same way.
+- **Future-state staffing model.** Took a current state of 15 to 20 tracked positions per service down to a future-state shell of 4 to 5 positions per service.
+- **Regional consolidation.** Leadership was consolidating 18 regional networks into 5. Alex allocated headcount to the new regions using each facility's share of regional enrollment as a stand-in for demand.
+- **Supervisor ratio scenarios.** Built an adjustable Excel model testing supervisor-to-staff ratios of 1:10, 1:12, and 1:16, documented known data gaps, and delivered the executive-ready model to the client's project sponsor.
+
+Result: leadership got 3 to 5 costed options for the reorganization.
+
 ## Business operations
 
 Operations work at early-stage startups and larger organizations, mostly the tasks that sit between teams.
@@ -74,7 +87,11 @@ Yes. At Kroot, a medical education app, Alex audited the product, wrote a 90-day
 
 ### What kinds of companies does Alex Williamson work with?
 
-Mostly early-stage health tech and medical device companies. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry.
+Mostly early-stage health tech and medical device companies, plus larger healthcare organizations such as a national clinical contact center network with 170+ sites. The work itself (building a sales motion, launching a product, running operations between teams) applies in any industry.
+
+### Does Alex Williamson do workforce modeling and org design?
+
+Yes. For a national clinical contact center network with 170+ sites, Alex mapped the workforce to its service lines, applied one full-time-equivalent staffing method across departments, and built a future-state model that cut 15 to 20 tracked positions per service down to 4 to 5. When leadership consolidated 18 regional networks into 5, Alex modeled headcount allocation and tested supervisor-to-staff ratios of 1:10, 1:12, and 1:16, giving leadership 3 to 5 costed options.
 
 ### How is a fractional operator different from a consultant?
 
