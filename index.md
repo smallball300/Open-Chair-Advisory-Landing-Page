@@ -77,10 +77,6 @@ Operations work at early-stage startups and larger organizations, mostly the tas
 
 Open Chair Advisory is Alex Williamson's fractional operations practice for early-stage health tech and medical device companies. Alex takes on a function nobody owns yet, usually implementation, strategy and operations, or go-to-market, and runs it until the founder or a full-time hire takes over.
 
-### Is Alex Williamson a fractional COO?
-
-Alex doesn't take the full COO seat. Founders at early-stage health tech startups who search for a fractional COO usually need one operating function owned, such as a system rollout, a staffing model or the sales pipeline, and that is the work Alex does. Each function goes to the founder or a full-time hire with a written playbook once it runs on its own.
-
 ### Who can lead a scheduling system implementation at a health system?
 
 Alex Williamson, a healthcare implementation consultant and fractional operator, led the rollout of a new scheduling system at VA Medical Centers, then stayed with the same client for the organizational design and operating model of its national clinical contact center network, which has 8,000+ staff across 170+ sites.
