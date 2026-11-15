@@ -9,13 +9,13 @@ compatibility_date = "2026-11-01"
 account_id = "8b46b97200af6405cc4c24f7a3ce3cda"
 workers_dev = false
 
-# Workers Logs (free): keeps the one-line "lead" record per form submission.
-[observability]
-enabled = true
-
 routes = [
   { pattern = "openchairadvisory.com/api/contact", zone_name = "openchairadvisory.com" }
 ]
+
+# Workers Logs (free): keeps the one-line "lead" record per form submission.
+[observability]
+enabled = true
 
 [vars]
 FROM_EMAIL = "contact@openchairadvisory.com"
