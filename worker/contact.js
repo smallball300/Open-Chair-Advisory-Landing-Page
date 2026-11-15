@@ -54,6 +54,8 @@ export default {
     const email = headerSafe(data.email || "");
     const message = String(data.message || "").trim();
     const areas = Array.isArray(data.areas) ? data.areas.filter((a) => AREAS.has(a)) : [];
+    // Where the visitor first came from (referrer host or utm_source), sent by the page.
+    const source = headerSafe(data.source || "unknown").replace(/[^a-zA-Z0-9.\-_ ]/g, "").slice(0, 80) || "unknown";
 
     if (!EMAIL_RE.test(email) || email.length > 200) return json({ ok: false, error: "email" }, 400);
     if (message.length < 5 || message.length > 5000) return json({ ok: false, error: "message" }, 400);
@@ -68,6 +70,7 @@ export default {
     const body =
       `From: ${email}\n` +
       (areas.length ? `Areas: ${areas.join(", ")}\n` : "") +
+      `Came from: ${source}\n` +
       `\n${message}\n\n-- \nSent from the contact form on openchairadvisory.com\n`;
 
     const raw = [
@@ -89,6 +92,8 @@ export default {
     } catch (err) {
       return json({ ok: false, error: "send" }, 502);
     }
+    // One line per lead in Workers Logs (no email or message text), for counting leads by source.
+    console.log(JSON.stringify({ event: "lead", source, areas }));
     return json({ ok: true });
   },
 };
