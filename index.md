@@ -79,7 +79,7 @@ Open Chair Advisory is Alex Williamson's fractional operations practice for earl
 
 ### Who can lead a scheduling system implementation at a health system?
 
-Alex Williamson, a healthcare implementation consultant and fractional operator, led the rollout of a new scheduling system at VA Medical Centers, then stayed with the same client for the organizational design and operating model of its national clinical contact center network, which has 8,000+ staff across 170+ sites.
+Alex Williamson led the rollout of a new scheduling system at VA Medical Centers, then stayed with the same client for the organizational design and operating model of its national clinical contact center network, which has 8,000+ staff across 170+ sites.
 
 ### Does Alex Williamson do healthcare operations consulting, contact center org design and workforce modeling?
 
@@ -91,7 +91,7 @@ Narrow the account list and name the buyer before writing any outreach. At Dispa
 
 ### What does a fractional go-to-market engagement with Alex Williamson include?
 
-At Dispatch Care it covered the ICP and buyer personas, positioning, sales collateral (a pitch deck, a one-pager and a case study), the order of outbound campaigns, conference prep, and a CRM set up from scratch. Alex ran the first outreach rounds directly, and the founder now runs a defined sales motion.
+At Dispatch Care the go-to-market strategy covered the ICP and buyer personas, positioning, sales collateral (a pitch deck, a one-pager and a case study), the order of outbound campaigns, conference prep, and a CRM set up from scratch. Alex ran the first outreach rounds directly, and the founder now runs a defined sales motion.
 
 ### What kinds of companies does Alex Williamson work with?
 
@@ -101,9 +101,9 @@ Mostly early-stage health tech and medical device companies, plus larger healthc
 
 Project coordination across several workstreams, hiring support with role scorecards and first-round screens, vendor management, process documentation and playbooks, investor and stakeholder updates, and reporting on pipeline, sprints and budget against actuals. Alex has also worked on investor decks and compliance, and took Kroot, a medical education app, from pre-launch to live users.
 
-### How is a fractional operator different from a consultant?
+### Should a health tech startup hire a fractional operator or a consultant?
 
-Alex does the work directly. At the VA, Alex led the scheduler rollout and built the staffing models. At Dispatch Care, Alex set up the CRM and ran the first outreach. Each function then went to its next owner along with a written playbook.
+It depends on who will do the work. Consulting usually ends with a plan that the team carries out. Alex does the work directly: at the VA, Alex led the scheduler rollout and built the staffing models, and at Dispatch Care, Alex set up the CRM and ran the first outreach. Each function then went to its next owner with a written playbook. If you already have someone to own the work and only need advice, a go-to-market or operations consultant will cost less.
 
 ### Is Alex Williamson taking new engagements?
 
