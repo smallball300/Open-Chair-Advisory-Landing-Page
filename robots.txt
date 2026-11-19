@@ -50,5 +50,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+# The contact form endpoint is not a page; keep crawlers off it.
+Disallow: /api/
 
 Sitemap: https://openchairadvisory.com/sitemap.xml
